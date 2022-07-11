@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-%c8)@g&=w_zx8uoo@5^5a275--m&!7c7)ceo-p_c&@r!xt)di@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'bakerybackendapi.herokuapp.com/']
 
 
 # Application definition
