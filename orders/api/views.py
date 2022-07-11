@@ -41,7 +41,7 @@ class OrderCreateView(generics.CreateAPIView):
         this_user=self.request.user
         serializer.save(product=this_product, customer=this_user)
         
-class OrderDetailView(generics.RetrieveUpdateDestroyAPIView):
+class OrderDetailView(generics.RetrieveUpdateAPIView):
     # queryset=Order.objects.all()
     #serializer_class=OrderSerializer
     permission_classes=[IsOrderOwnerOrReadOnly]
