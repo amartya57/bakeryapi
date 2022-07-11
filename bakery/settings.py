@@ -82,12 +82,26 @@ WSGI_APPLICATION = 'bakery.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# postgres://tjloqrcsrfvxbl:bda9ed27b5eee6bbb5c886f6526266bfb93754d2192e97ef4f273d0cdb24143c@ec2-52-20-166-21.compute-1.amazonaws.com:5432/d488lajoqr9ovt
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd488lajoqr9ovt',
+        'HOST' : 'ec2-52-20-166-21.compute-1.amazonaws.com',
+        'PORT' : 5432,
+        'USER' : 'tjloqrcsrfvxbl',
+        'PASSWORD' : 'bda9ed27b5eee6bbb5c886f6526266bfb93754d2192e97ef4f273d0cdb24143c'
     }
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation
