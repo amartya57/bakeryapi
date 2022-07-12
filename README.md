@@ -32,7 +32,7 @@ GET,POST | products/list/ | Get all products, create new products | GET, POST | 
 GET, PUT, PATCH, DELETE | products/{product_id}/ | Retrieve, Update, Delete a product | GET,PUT,DELETE | GET | None 
 GET | products/{product_id}/reviews/ | Get the reviews for a product | GET | GET | GET
 POST | products/{product_id}/reviews-create/ | Post reviews for a product | - | POST | None
-GET, PUT, PATCH, DELETE | products/reviews/{review_id} | Retrieve, Update, Delete a review | - | GET, PUT, DELETE | None
+GET, PUT, PATCH, DELETE | products/reviews/{review_id}/ | Retrieve, Update, Delete a review | - | GET, PUT, DELETE | None
 
 ### Order Endpoints  
 METHOD | ROUTE | FUNCTIONALITY | ACCESS - ADMIN | ACCESS - USER | ACCESS - ANON 
