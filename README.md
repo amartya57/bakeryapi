@@ -8,6 +8,7 @@ This is a REST Api for a bakery shop cum delivery service. It is built using the
 * Place orders by customers. (CRUD)
 ### Features :
 * Token Authentication
+* Permissions
 * Throttling
 * pagination
 * Searching
