@@ -46,7 +46,7 @@ POST | orders/{order_id}/detail/ | Retrieve, Update, Delete an order | GET, PUT,
 * Admin can only change the delivered status of an order
 * An user can only see orders made by him/her. Admin can see all orders
 * An user can edit orders only before the delivery.
-* An user can create maximum 3 orders per minute.
+* An user can create maximum 3 orders per hour.
 
 ## Searching and Ordering
 * The *products/list/* endpoint support search functionality for name and description. ( *base/products/list/?search=chocolate* )

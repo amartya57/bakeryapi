@@ -156,7 +156,7 @@ REST_FRAMEWORK={
     'DEFAULT_THROTTLE_RATES':{
         'anon':'10/minute',
         'user':'30/minute',
-        'order-create':'3/minute',
+        'order-create':'3/hour',
     },
     'DEFAULT_RENDERER_CLASSES': [
         'rest_framework.renderers.JSONRenderer'
