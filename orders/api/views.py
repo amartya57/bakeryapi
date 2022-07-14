@@ -14,12 +14,14 @@ from orders.api.permissions import IsOrderOwnerOrReadOnly
 from orders.api.throttling import OrderCreateThrottle
 from orders.api.paginations import OrderPagination
 
+from bakery.helper import Tags
 
 class OrderListView(generics.ListAPIView):
     # queryset=Order.objects.all()
     serializer_class=OrderSerializer
     permission_classes=[IsAuthenticated]
     pagination_class=OrderPagination
+    tags = [Tags.Orders.value]
     
     def get_queryset(self):
         if self.request.user.is_staff:
@@ -32,6 +34,7 @@ class OrderCreateView(generics.CreateAPIView):
     serializer_class=OrderSerializer
     permission_classes=[IsAuthenticated]
     throttle_classes=[OrderCreateThrottle]
+    tags = [Tags.Orders.value]
     
     def perform_create(self, serializer):
         pk=self.kwargs.get("pk")
@@ -45,6 +48,7 @@ class OrderDetailView(generics.RetrieveUpdateAPIView):
     # queryset=Order.objects.all()
     #serializer_class=OrderSerializer
     permission_classes=[IsOrderOwnerOrReadOnly]
+    tags = [Tags.Orders.value]
     
     def get_serializer_class(self):
         if self.request.user.is_staff:

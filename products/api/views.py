@@ -12,10 +12,13 @@ from products.api.serializers import ReviewSerializer, ProductSerializer
 from products.api.permissions import IsAdminOrReadOnly, IsReviewOwnerOrReadOnly
 from products.api.paginations import ProductListPagination
 
+from bakery.helper import Tags
+
 class ReviewList(generics.ListAPIView):
     # queryset=Review.objects.all()
     serializer_class=ReviewSerializer
     permission_classes=[IsAuthenticated]
+    tags = [Tags.Reviews.value]
     
     def get_queryset(self):
         pk=self.kwargs['pk']
@@ -25,6 +28,7 @@ class ReviewCreate(generics.CreateAPIView):
     queryset=Review.objects.all()
     serializer_class=ReviewSerializer
     permission_classes=[IsAuthenticated]
+    tags = [Tags.Reviews.value]
     
     def perform_create(self, serializer):
         pk=self.kwargs.get("pk")
@@ -42,6 +46,7 @@ class ReviewDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset=Review.objects.all()
     serializer_class=ReviewSerializer
     permission_classes=[IsReviewOwnerOrReadOnly]
+    tags = [Tags.Reviews.value]
     
     def perform_update(self, serializer):
         pk=self.kwargs.get("pk")
@@ -59,8 +64,10 @@ class ProductListAV(generics.ListCreateAPIView):
     filter_backends=[filters.OrderingFilter, filters.SearchFilter]
     search_fields=['name', 'description']
     ordering_fields=['price']
+    tags = [Tags.Products.value]
     
 class ProductDetailsAV(generics.RetrieveUpdateDestroyAPIView):
     queryset=Product.objects.all()
     serializer_class=ProductSerializer
     permission_classes=[IsAdminOrReadOnly, IsAuthenticated]
+    tags = [Tags.Products.value]

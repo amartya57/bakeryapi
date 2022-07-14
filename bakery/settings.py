@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-%c8)@g&=w_zx8uoo@5^5a275--m&!7c7)ceo-p_c&@r!xt)di@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', 'bakerybackendapi.herokuapp.com']
 
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
+    'drf_yasg',
     'rest_framework',
     'rest_framework.authtoken',
     
@@ -161,4 +162,15 @@ REST_FRAMEWORK={
     'DEFAULT_RENDERER_CLASSES': [
         'rest_framework.renderers.JSONRenderer'
     ],
+}
+
+SWAGGER_SETTINGS = {
+   'SECURITY_DEFINITIONS': {
+      'Token': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header'
+      },
+   },
+   "DEFAULT_AUTO_SCHEMA_CLASS": "bakery.urls.OrderedSwaggerAutoSchema",
 }
